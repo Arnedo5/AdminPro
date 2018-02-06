@@ -1,0 +1,7 @@
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">{{ chartTitle }}</h4>
+        <!-- <canvas id="chart" class=""> </canvas> -->
+        <canvas baseChart [datasets]="chartData" [labels]="chartLabels" [chartType]="chartType" [colors]="chartColors"></canvas>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+<h3>{{ leyenda }}</h3>
+
+<div class="form-group ">
+    <label class="control-label ">Barra de cambio </label>
+    <div class="input-group bootstrap-touchspin ">
+        <span class="input-group-btn ">
+        <button class="btn btn-info btn-outline bootstrap-touchspin-down " type="button" (click)="cambiarValor(-5)">
+            <i class="mdi mdi-minus text-white "></i>
+        </button>
+      </span>
+        <span class="input-group-addon bootstrap-touchspin-prefix " style="display: none; "></span>
+        <input #txtProgress id="inputProgress" type="number " value="30 " name="tch3_22 " name="width" [(ngModel)]="progreso" (ngModelChange)="onChanges($event)" data-bts-button-down-class="btn btn-secondary btn-outline " data-bts-button-up-class="btn btn-secondary btn-outline "
+            class="form-control " style="display: block;" min="0" max="100">
+        <span class="input-group-addon bootstrap-touchspin-postfix " style="display: none; "></span>
+        <span class="input-group-btn ">
+          <button class="btn btn-info btn-outline bootstrap-touchspin-up " type="button" (click)="cambiarValor(+5)">
+              <i class="mdi mdi-plus text-white "></i>
+          </button>
+        </span>
+    </div>
+</div>
