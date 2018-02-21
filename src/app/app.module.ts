@@ -10,9 +10,11 @@ import { APP_ROUTES } from './app.routes';
 // Modulos
 import { PagesModoule } from './pages/pages.module';
 
+// Services
+import { ServiceModule } from './services/service.module';
+
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { NopagefoundComponent } from './shared/nopagefound/nopagefound.component';
 import { PagesComponent } from './pages/pages.component';
 import { RegisterComponent } from './login/register.component';
 
@@ -21,14 +23,14 @@ import { RegisterComponent } from './login/register.component';
   declarations: [
     AppComponent,
     LoginComponent,
-    NopagefoundComponent,
     RegisterComponent
   ],
   imports: [
     BrowserModule,
     APP_ROUTES,
     PagesModoule,
-    FormsModule
+    FormsModule,
+    ServiceModule
   ],
   providers: [],
   bootstrap: [AppComponent]

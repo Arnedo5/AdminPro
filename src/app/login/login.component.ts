@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+declare function init_pluguins();
 
 @Component({
   selector: 'app-login',
@@ -7,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() {
+  constructor(public router: Router) {
 
   }
 
@@ -22,6 +25,13 @@ export class LoginComponent implements OnInit {
         $('#loginform').fadeIn();
       });
     });
+
+    init_pluguins();
+  }
+
+  public ingresar () {
+    console.log('ingresando');
+    this.router.navigate(['/dashboard']);
   }
 
 }

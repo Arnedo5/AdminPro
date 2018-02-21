@@ -42,7 +42,7 @@ export class GraficasComponent implements OnInit {
         'rgba(240, 243, 189, 0.2)'
     ],
     borderColor: [
-      'rgba(5, 102, 141, 1)',
+        'rgba(5, 102, 141, 1)',
         'rgba(5, 102, 141, 1)',
         'rgba(2, 128, 144, 1)',
         'rgba(0, 168, 150, 1)',
