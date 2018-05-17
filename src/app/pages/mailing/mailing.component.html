@@ -1,0 +1,58 @@
+<form class="form-material m-t-40" [formGroup]="forma" #registerForm="ngForm" (ngSubmit)="sendMail(registerForm)">
+    <div class="row">
+        <div class="col-md-8 col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Enviamiento de Mails</h4>
+                    <h6 class="card-subtitle">darnedo - 14/03/2018</h6>
+                    <div class="form-group">
+                        <label>Destinatario</label>
+                        <input type="text" class="form-control form-control-line" placeholder="ej: example@example.com" formControlName="mailDest" [(ngModel)]="mail.mailDest">
+                    </div>
+                    <div class="form-group">
+                        <label>Cabecera</label>
+                        <input type="text" class="form-control form-control-line" placeholder="ej: Victransa informa" formControlName="mailCab" [(ngModel)]="mail.mailCab">
+                    </div>
+                    <div class="form-group">
+                        <label>Contenido del mensaje</label>
+                        <textarea id="mailText" class="form-control" rows="5" (change)="inputController()"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button [disabled]="!mail.mailDest || !mail.mailCab" type="submit" class="btn btn-raised btn-primary">Send Mail</button>
+                    </div>
+
+                </div>
+            </div>
+            {{ mail | json }}
+        </div>
+        <div class="col-md-4 col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title font-weight-bold">Contenido - HTMl</h4>
+                    <!--
+                    <div *ngFor="let name of names let i = index">
+                        <input class="radio-col-brown" name="group1" type="radio" [id]="'radio_' + i + 1" checked="" [value]="name">
+                        <label [for]="'radio_' + i + 1">{{ name }}</label>
+                    </div>-->
+
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <div *ngIf="treeFiles">
+                        <div *ngFor="let folder of treeFiles.children let x = index">
+                            <h4 class="col align-self-start">{{folder.name}}</h4>
+                            <div *ngIf="folder.children">
+                                <div *ngFor="let link of folder.children let i = index" class="padding-left-15">
+                                    <input class="radio-col-brown" name="group1" type="radio" [id]="'radio_' + x + i" [value]="link.path" (click)="loadPreview('radio_' + x + i)">
+                                    <label [for]="'radio_' + x + i">{{ link.name }}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</form>

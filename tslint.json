@@ -14,8 +14,7 @@
         "eofline": true,
         "forin": true,
         "import-blacklist": [
-            true,
-            "rxjs"
+            true
         ],
         "import-spacing": true,
         "indent": [
@@ -79,7 +78,7 @@
             "check-else",
             "check-whitespace"
         ],
-        "prefer-const": true,
+        "prefer-const": false,
         "quotemark": [
             true,
             "single"
