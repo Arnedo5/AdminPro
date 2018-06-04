@@ -1,5 +1,8 @@
 import { RouterModule, Routes } from '@angular/router';
 
+// Guards
+import { LoginGuardGuard } from '../services/service.index';
+
 // Components
 import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -9,9 +12,7 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 import { PromesasComponent } from './promesas/promesas.component';
 import { MailingComponent } from './mailing/mailing.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
-
-// Guards
-import { LoginGuardGuard } from '../services/service.index';
+import { ProfileComponent } from './profile/profile.component';
 
 const pagesRoutes: Routes = [
     {
@@ -25,6 +26,7 @@ const pagesRoutes: Routes = [
             { path: 'promesas', component: PromesasComponent, data: { titulo: 'Promesas' } },
             { path: 'rxjs', component: RxjsComponent, data: { titulo: 'RxJs' } },
             { path: 'account-settings', component: AccountSettingsComponent, data: { titulo: 'Account Settings' } },
+            { path: 'perfil', component: ProfileComponent, data: { titulo: 'Perfil de usuario' } },
             { path: 'mailing', component: MailingComponent, data: { titulo: 'Mailing' } },
             { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
         ]

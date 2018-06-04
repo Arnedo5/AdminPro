@@ -1,13 +1,16 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 import 'rxjs/add/operator/map';
 
 // Models
 import { User } from '../../models/user.model';
-import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
 
 // Config
 import { URL_SERVICES } from '../../config/config';
+
+// Services
+import { UploadFileService } from '../upload-file/upload-file.service';
 
 @Injectable()
 
@@ -17,7 +20,8 @@ export class UserService {
   token: string;
 
   constructor(public http: HttpClient,
-              public router: Router
+              public router: Router,
+              public _uploadFileService: UploadFileService
   ) {
 
     console.log('UserService ready!');
@@ -76,10 +80,37 @@ export class UserService {
     let url = URL_SERVICES + '/user';
 
     return this.http.post(url, user).map((resp: any) => {
-      swal('Usuario creado', user.email, 'success');
       return resp.user;
+      swal('Usuario creado', user.email, 'success');
     });
 
+  }
+
+  updateUser(user: User) {
+
+    let url = URL_SERVICES + '/user/' + this.user._id;
+    url += '?token=' + this.token;
+
+    return this.http.put( url, user).map( ( resp: any ) => {
+      this.user = resp.user;
+      this.saveStorage( resp.user._id, this.token, resp.user );
+      swal('Usuario actualizado', user.name, 'success');
+      return true;
+    });
+
+  }
+
+  changeImg ( file: File, id: string) {
+
+    this._uploadFileService.uploadFile( file, 'user', id)
+    .then( (resp: any) => {
+      this.user.img = resp.user.img;
+      this.saveStorage( id, this.token, this.user);
+      swal( 'Imagen actualizada', this.user.name, 'success');
+    })
+    .catch( resp => {
+      swal( resp.message, resp.errors.message, 'warning');
+    });
   }
 
   logout () {

@@ -12,7 +12,8 @@ import {
   SharedService,
   MailingService,
   UserService,
-  LoginGuardGuard
+  LoginGuardGuard,
+  UploadFileService
 } from './service.index';
 
 
@@ -27,7 +28,8 @@ import {
     SharedService,
     MailingService,
     UserService,
-    LoginGuardGuard
+    LoginGuardGuard,
+    UploadFileService
   ],
   declarations: []
 })

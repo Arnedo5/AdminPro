@@ -9,6 +9,17 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ChartsModule } from 'ng2-charts';
 
 
+// Modules
+import { SharedModule } from '../shared/shared.module';
+
+// Routes
+import { PAGES_ROUTES } from './pages.routes';
+import { PromesasComponent } from './promesas/promesas.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
+
+// Pipes
+import { PipesModule } from '../pipes/pipes.module';
+
 // Components
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProgressComponent } from './progress/progress.component';
@@ -18,15 +29,7 @@ import { PagesComponent } from './pages.component';
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { MailingComponent } from './mailing/mailing.component';
-
-
-// Modules
-import { SharedModule } from '../shared/shared.module';
-
-// Routes
-import { PAGES_ROUTES } from './pages.routes';
-import { PromesasComponent } from './promesas/promesas.component';
-import { RxjsComponent } from './rxjs/rxjs.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
     declarations: [
@@ -39,7 +42,8 @@ import { RxjsComponent } from './rxjs/rxjs.component';
         AccountSettingsComponent,
         MailingComponent,
         PromesasComponent,
-        RxjsComponent
+        RxjsComponent,
+        ProfileComponent
     ],
     exports: [
         DashboardComponent,
@@ -54,7 +58,8 @@ import { RxjsComponent } from './rxjs/rxjs.component';
         PAGES_ROUTES,
         FormsModule,
         ChartsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        PipesModule
     ]
 })
 export class PagesModoule { }
