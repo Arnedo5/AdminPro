@@ -13,6 +13,7 @@ import { PromesasComponent } from './promesas/promesas.component';
 import { MailingComponent } from './mailing/mailing.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { ProfileComponent } from './profile/profile.component';
+import { UsersComponent } from './users/users.component';
 
 const pagesRoutes: Routes = [
     {
@@ -27,6 +28,9 @@ const pagesRoutes: Routes = [
             { path: 'rxjs', component: RxjsComponent, data: { titulo: 'RxJs' } },
             { path: 'account-settings', component: AccountSettingsComponent, data: { titulo: 'Account Settings' } },
             { path: 'perfil', component: ProfileComponent, data: { titulo: 'Perfil de usuario' } },
+
+            // Mantenimientos
+            { path: 'usuarios', component: UsersComponent, data: { titulo: 'Mantenimiento de usuarios' } },
             { path: 'mailing', component: MailingComponent, data: { titulo: 'Mailing' } },
             { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
         ]

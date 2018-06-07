@@ -24,8 +24,14 @@ export class UserService {
               public _uploadFileService: UploadFileService
   ) {
 
-    console.log('UserService ready!');
     this.loadStorage();
+
+  }
+
+  loadUsers( skip: number = 0) {
+
+      let url = URL_SERVICES + '/user?skip=' + skip;
+      return this.http.get( url);
 
   }
 
@@ -80,8 +86,8 @@ export class UserService {
     let url = URL_SERVICES + '/user';
 
     return this.http.post(url, user).map((resp: any) => {
-      return resp.user;
       swal('Usuario creado', user.email, 'success');
+      return resp.user;
     });
 
   }
@@ -92,9 +98,24 @@ export class UserService {
     url += '?token=' + this.token;
 
     return this.http.put( url, user).map( ( resp: any ) => {
-      this.user = resp.user;
-      this.saveStorage( resp.user._id, this.token, resp.user );
+
+      if ( user._id === this.user._id ) {
+        this.user = resp.user;
+        this.saveStorage( resp.user._id, this.token, resp.user );
+      }
+
       swal('Usuario actualizado', user.name, 'success');
+      return true;
+    });
+
+  }
+
+  deleteUser( id: string ) {
+
+    let url = URL_SERVICES + '/user/' + id + '?token=' + this.token;
+
+    return this.http.delete( url ).map( resp => {
+      swal('Usuario borrado', 'El usuario ha sido eliminado correctamente', 'success');
       return true;
     });
 

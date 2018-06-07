@@ -30,6 +30,8 @@ import { IncrementadorComponent } from '../components/incrementador/incrementado
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { MailingComponent } from './mailing/mailing.component';
 import { ProfileComponent } from './profile/profile.component';
+import { UsersComponent } from './users/users.component';
+import { ModalUploadComponent } from '../components/modal-upload/modal-upload.component';
 
 @NgModule({
     declarations: [
@@ -43,7 +45,9 @@ import { ProfileComponent } from './profile/profile.component';
         MailingComponent,
         PromesasComponent,
         RxjsComponent,
-        ProfileComponent
+        ProfileComponent,
+        UsersComponent,
+        ModalUploadComponent
     ],
     exports: [
         DashboardComponent,

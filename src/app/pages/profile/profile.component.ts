@@ -6,6 +6,7 @@ import { UserService } from '../../services/user/user.service';
 // Models
 import { User } from '../../models/user.model';
 
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -18,7 +19,7 @@ export class ProfileComponent implements OnInit {
   imgUpload: File;
   imgTemp: string;
 
-  constructor(public _userService: UserService ) {
+  constructor(public _userService: UserService) {
     this.user = this._userService.user;
   }
 
@@ -59,6 +60,7 @@ export class ProfileComponent implements OnInit {
 
     reader.onloadend = () => this.imgTemp = reader.result;
     console.log( file );
+
   }
 
   changeImage () {

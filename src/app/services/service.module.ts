@@ -13,7 +13,8 @@ import {
   MailingService,
   UserService,
   LoginGuardGuard,
-  UploadFileService
+  UploadFileService,
+  ModalUploadService
 } from './service.index';
 
 
@@ -29,7 +30,8 @@ import {
     MailingService,
     UserService,
     LoginGuardGuard,
-    UploadFileService
+    UploadFileService,
+    ModalUploadService
   ],
   declarations: []
 })

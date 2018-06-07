@@ -1,3 +1,4 @@
+export { ModalUploadService } from '../components/modal-upload/modal-upload.service';
 export { UploadFileService } from './upload-file/upload-file.service';
 export { LoginGuardGuard } from './guards/login-guard.guard';
 export { SettingsService } from './settings/settings.service';

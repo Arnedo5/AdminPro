@@ -1,0 +1,82 @@
+<!--
+<div class="row animated fadeIn">
+    <div class="col-12 col-md-12">
+        <div class="card">
+            <div class="card-body">
+                 <h4 class="card-title m-t-10">Información</h4> 
+                <h6 class="card-subtitle">Actualizar la información del usuario</h6>
+                <form ngNativeValidate class="form-material m-t-40">
+                    <div class="form-group">
+                        <label>Nombre</label>
+                        <input type="text" class="form-control form-control-line" name="name" placeholder="Buscar usuario..." required>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+-->
+<div class="row animated fadeIn">
+    <div class="col-12 col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Data Export - {{ total }}</h4>
+                <h6 class="card-subtitle">Export data to Copy, CSV, Excel, PDF & Print</h6>
+                <div class="table-responsive m-t-40">
+                    <button type="button" class="btn btn-danger" (click)="deleteUsers()"><i class="fa fa-trash-o"></i></button>
+                    <button type="button" class="btn btn-primary" (click)="saveUser()"><i class="fa fa-save"></i></button>
+                    <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Nombre</th>
+                                <th>Apellidos</th>
+                                <th>Email</th>
+                                <th>Imagen</th>
+                                <th>Role</th>
+                                <th>Usuario de Google</th>
+                            </tr>
+                        </thead>
+                        <!--
+                        <tfoot>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Apellidos</th>
+                                <th>Email</th>
+                                <th>Imagen</th>
+                                <th>Role</th>
+                                <th>Usuario de Google</th>
+                            </tr>
+                        </tfoot>
+                        -->
+                        <!-- $event.target.checked -->
+                        <tbody>
+                            <tr *ngFor='let user of users let i = index' class="cursor-pointer" ng-dblclick="deleteUsers()">
+                                <td (click)="arrayItems(user._id,'#checkBox_' + i )">
+                                    <input type="checkbox" id="checkBox_{{ i }}" class="filled-in chk-col-light-blue no-disable" disabled>
+                                    <label for="checkBox_{{ i }}"></label>
+                                </td>
+                                <td (click)="arrayItems(user._id,'#checkBox_' + i )">{{ user.name }}</td>
+                                <td (click)="arrayItems(user._id,'#checkBox_' + i )">{{ user.surname }}</td>
+                                <td (click)="arrayItems(user._id,'#checkBox_' + i )">{{ user.email }}</td>
+                                <td align="center"><img (click)="showModal( user._id )" [src]="user.img | image:'user'" alt="user" width="40" class="img-circle"></td>
+                                <td>{{ user.role }}
+                                    <!--
+                                    <select [(ngModel)]="user.role" name="role" id="role" class="form-control" (change)="saveUser( user )">
+                                        <option value="ADMIN_ROLE">ADMIN_ROLE</option>
+                                        <option value="USER_ROLE">USER_ROLE</option>
+                                    </select>
+                                    -->
+                                </td>
+                                <td (click)="arrayItems(user._id,'#checkBox_' + i )">
+                                    <span *ngIf="user.google == true" class="label label-danger">Google</span>
+                                    <span *ngIf="user.google == false" class="label label-primary">Normal</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
